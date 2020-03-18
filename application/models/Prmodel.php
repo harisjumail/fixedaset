@@ -11,7 +11,7 @@ class Prmodel extends CI_Model{
 		$this->load->library('session');	
 	  
 		$this->db->select("admin_id,admin_username"); 
-	  
+	   
 		$this->db->from('t_admin');
 	  
 		$this->db->where('admin_id=',$mysession);
