@@ -1,0 +1,4 @@
+ini
+<?php 
+echo $oke;
+?>
