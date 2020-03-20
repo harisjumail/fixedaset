@@ -49,7 +49,6 @@ if($this->session->flashdata('message'))
 
  
  ?> 
-
                                 <form action="#" class="form-horizontal">
                                     <div class="form-body">                                     
                                         <!--/row-->
@@ -58,11 +57,19 @@ if($this->session->flashdata('message'))
                                                 <div class="form-group row">
                                                     <label class="control-label text-right col-md-3">FA Kode</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" name="fakode" value ="<?php 
+                                                        <input type="text" name="fakode" 
+                                                        
+                                                        value ="<?php 
                                                         if($cek == "ok"){
                                                             echo $main2->mastercat_kode ;
                                                             }
-                                                        ?>" class="form-control">
+                                                        else{
+                                                           // echo "bro";
+                                                            echo set_value('fakode');
+                                                        }    
+                                                        ?>" 
+                                                        class="form-control">
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,6 +81,11 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mastercat_nama ;
                                                             }
+                                                        else{
+
+                                                          echo set_value('faname');  
+                                                        }    
+
                                                         ?>" class="form-control">
                                                     </div>
                                                 </div>
@@ -90,6 +102,10 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mastercat_fano ;
                                                             }
+                                                         else{
+                                                         echo set_value('fano');       
+
+                                                         }   
                                                         ?>"
                                                         class="form-control">
                                                     </div>
@@ -118,11 +134,12 @@ if($this->session->flashdata('message'))
 
                                                          else{
                                                              ?>
-                                                            <option value = "">-</option>
-                                                            <option value = "1">Strihgt Line Methode</option>
-                                                            <option value = "2">Saldo Menurun</option>
-                                                            <option value = "3">Decreasing Change Methode</option>
-                                                            <option value = "4">Sum Of Year Digit Methode</option>                                                             
+                                        
+                                                            <option value = "" <?php echo set_select('famethode', '', TRUE); ?>>-</option>
+                                                            <option value = "1" <?php echo set_select('famethode', '1'); ?>>Strihgt Line Methode</option>
+                                                            <option value = "2" <?php echo set_select('famethode', '2'); ?>>Saldo Menurun</option>
+                                                            <option value = "3" <?php echo set_select('famethode', '3'); ?>> Decreasing Change Methode</option>
+                                                            <option value = "4" <?php echo set_select('famethode', '4'); ?>>Sum Of Year Digit Methode</option>                                                             
 
                                                         <?php 
                                                          }   
@@ -133,9 +150,9 @@ if($this->session->flashdata('message'))
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--/span-->
+                                       
                                         </div>
-                                        <!--/row-->
+                                    
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
@@ -147,22 +164,332 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mastercat_year ;
                                                             }
+                                                         else{
+                                                          echo set_value();      
+
+                                                         }   
                                                         ?>"
                                                         
                                                         class="form-control" >
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="control-label text-right col-md-3"></label>
-                                                    <div class="col-md-9">
 
-                                                    <?php 
-                                                        if($cek == "ok"){
+                                         </div>
 
-                                                     ?>
+                                
+
+
+                                 
+                                    </div>
+                                  
+                                 
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+<!-- form input end-->
+
+
+<div class="row"> <!--  mulai card 2--> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+        <p class="text-muted m-b-30 font-13"> Acquisition Cost : </p>            
+        <div class = "row">
+
+                                        
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa No </label>
+       <div class="col-md-9">
+
+<input type="text" name="faccno" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coano1 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa Name </label>
+       <div class="col-md-9">
+
+<input type="text" name="accona" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coana1 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+</div> 
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card2-->
+
+
+<div class="row"> <!--  mulai card 3--> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+        <p class="text-muted m-b-30 font-13"> Acm Dep/Amort : </p>
+
+            
+        <div class = "row">
+
+                                        
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa No </label>
+       <div class="col-md-9">
+
+<input type="text" name="decono" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coano2 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa Name </label>
+       <div class="col-md-9">
+
+<input type="text" name="decona" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coana2 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+</div> 
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card 3-->
+
+<div class="row"> <!--  mulai card 4--> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+        <p class="text-muted m-b-30 font-13"> Dep / Amort Exp - Production : </p>
+
+            
+        <div class = "row">
+
+                                        
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa No </label>
+       <div class="col-md-9">
+
+<input type="text" name="excono" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coano3;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa Name </label>
+       <div class="col-md-9">
+
+<input type="text" name="excona" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coana3;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+</div> 
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card 4-->
+
+<!--  mulai card 5--> 
+<div class="row"> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+        <p class="text-muted m-b-30 font-13"> Dep / Amort Exp - Selling : </p>
+
+            
+        <div class = "row">
+
+                                        
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa No </label>
+       <div class="col-md-9">
+
+<input type="text" name="amcono" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coano4 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa Name </label>
+       <div class="col-md-9">
+
+<input type="text" name="amcono" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coana4;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+</div> 
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card 5-->
+
+
+<!--  mulai card 6--> 
+<div class="row"> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+        <p class="text-muted m-b-30 font-13"> Dep / Amort Exp - Gen & Adm : </p>
+
+            
+        <div class = "row">
+
+                                        
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa No </label>
+       <div class="col-md-9">
+
+<input type="text" name="gecono" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coano5;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+<div class ="col-md-6">
+  <div class="form-group row">
+       <label class="control-label text-right col-md-3">Coa Name </label>
+       <div class="col-md-9">
+
+<input type="text" name="gecona" value ="<?php 
+  if($cek == "ok"){
+   echo $main2->mastercat_coana5 ;
+    }
+   ?>" class="form-control">
+       </div>
+   </div>
+
+</div>
+
+
+</div> 
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card 6-->
+
+
+<div class="row"> <!--  mulai card 7--> 
+
+<div class="col-12">
+
+    <div class="card">
+
+        <div class="card-body">
+
+        <div class ="row">              
+             <!--/span-->
+            <div class="col-md-12">
+                <div class="form-group row">
+                    
+                       <div class="col-md-12">
+
+                         <?php 
+                           if($cek == "ok"){
+
+                         ?>
          <button type="submit" name="tombol" value = "<?php echo $main2->mastercat_id?>edi" class="btn btn-success">Submit</button>
                                                      <?php       
                                                          }
@@ -173,7 +500,7 @@ if($this->session->flashdata('message'))
                                                     <?php
                                                     } 
                                                     ?>
-       <button type="submit" name="tombol" value="baru" class="btn btn-inverse">New</button>
+   <button type="submit" name="tombol" value="baru" class="btn btn-inverse">New</button>
                                                       
                                                     </div>
                                                 </div>
@@ -181,18 +508,22 @@ if($this->session->flashdata('message'))
                                             <!--/span-->
                                         </div>
                                         <!--/row-->
-                                    </div>
-                                  
-                                 
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           
-<!-- form input end-->
+
+        </div>  
+    </div>  
+</div>  
+
+</div> 
+
+<!-- end card 5-->
+
 
         </form>
+
+
+
+
+
                 <div class="row">
 
                     <div class="col-12">
@@ -203,9 +534,7 @@ if($this->session->flashdata('message'))
 
                             
 
-        <div class="table-responsive">
-
-                                
+        <div class="table-responsive">                      
 
                                 
 

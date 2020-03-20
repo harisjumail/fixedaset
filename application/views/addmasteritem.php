@@ -51,6 +51,11 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                             echo $main2->mi_kode;
                                                             }
+                                                        else{
+
+                                                            echo set_value('itkode');;
+
+                                                        }    
                                                         ?>" class="form-control">
                                                     </div>
                                                 </div>
@@ -63,6 +68,11 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mi_namaitem ;
                                                             }
+                                                            else{
+
+                                                                echo set_value('itname');;
+    
+                                                            }     
                                                         ?>" class="form-control">
                                                     </div>
                                                 </div>
@@ -79,6 +89,11 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mi_brand ;
                                                             }
+                                                            else{
+
+                                                                echo set_value('itbrand');;
+    
+                                                            }   
                                                         ?>"
                                                         class="form-control">
                                                     </div>
@@ -110,11 +125,11 @@ if($this->session->flashdata('message'))
                                                          else{
                                                              ?>
                                         
-                                                            <option value = "">-</option>
-                                                            <option value = "Red">Red</option>
-                                                            <option value = "Yellow">Yellow</option>
-                                                            <option value = "Blue">Blue</option>
-                                                            <option value = "Orange">orange</option>                                                          
+                                                            <option value = "" <?php echo set_select('itco', '', TRUE); ?> >-</option>
+                                                            <option value = "Red" <?php echo set_select('itco', 'Red'); ?> >Red</option>
+                                                            <option value = "Yellow" <?php echo set_select('itco', 'Yellow'); ?>  >Yellow</option>
+                                                            <option value = "Blue" <?php echo set_select('itco', 'Blue'); ?> >Blue</option>
+                                                            <option value = "Orange" <?php echo set_select('itco', 'Orange'); ?> >orange</option>                                                          
                                                         <?php 
                                                          }   
                                                         ?>           
@@ -138,6 +153,11 @@ if($this->session->flashdata('message'))
                                                         if($cek == "ok"){
                                                         echo $main2->mi_size ;
                                                             }
+                                                          else{
+
+                                                         echo set_value('itsize');       
+
+                                                          }  
                                                         ?>"
                                                         
                                                         class="form-control" >
@@ -178,11 +198,17 @@ if($this->session->flashdata('message'))
                                                         }
 
                                                          else{
-
-                                                            foreach ($facode as $facode2) {        
+                                                             $count = 0;
+                                                            foreach ($facode as $facode2) {    
+                                                             $count++;    
                                                              ?>
-                                                           <option value = "<?php echo $facode2->mastercat_id?>" ><?php echo $facode2->mastercat_nama?></option>
-                                                                                                                     
+                                                           <option value = "<?php echo $facode2->mastercat_id ?>" 
+                                                           <?php if($count == 1){echo set_select('itfacode', $facode2->mastercat_id,TRUE);}
+                                                           else{echo set_select('itfacode', $facode2->mastercat_id);}
+                                                           ; ?>>
+
+                                                           <?php echo $facode2->mastercat_nama ?></option>
+                        <!--<option value = "Red" <?php //echo set_select('itco', 'Red'); ?> >Red</option>    -->                                                
 
                                                         <?php 
                                                             }
@@ -224,10 +250,10 @@ if($this->session->flashdata('message'))
                                                             }
 
                                                          else{
-                                                             ?>      
-                                                            <option value = "">-</option>
-                                                            <option value = "1">Fixed Asset</option>
-                                                            <option value = "2">Barang Modal</option>                                                                                                            
+                                                             ?>    
+                                                            <option value = "" <?php echo set_select('ittype', '', TRUE); ?> >-</option>
+                                                            <option value = "1" <?php echo set_select('ittype', '1'); ?>>Fixed Asset</option>
+                                                            <option value = "2" <?php echo set_select('ittype', '2'); ?>>Barang Modal</option>                                                                                                            
                                                             <?php 
                                                          }   
                                                         ?>                                                            

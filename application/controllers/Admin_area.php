@@ -151,7 +151,7 @@ $mastercatrec= $this->Admin_model->getmastercat($rowno,$rowperpage)->result();
 		   $data["postrow"] = $this->Admin_model->get_userdata();
 
 
-$this->load->view("addmastercat",$data);
+		  $this->load->view("addmastercat",$data);
 
 
 }
@@ -172,9 +172,28 @@ function mastercatact1(){
 
 	$this->form_validation->set_rules('fano', 'Fa Number', 'required'); 
   
-	$this->form_validation->set_rules('famethode', 'Fa Methode', 'required'); 
+	$this->form_validation->set_rules('famethode', 'Fa Methode', 'required');
 
-	$this->form_validation->set_rules('fause', 'Fa Use', 'required');	  
+	$this->form_validation->set_rules('accono', 'ac number', 'required');	  
+
+	$this->form_validation->set_rules('accona', 'ac name', 'required');	
+  
+	$this->form_validation->set_rules('decono', 'de number', 'required');
+
+	$this->form_validation->set_rules('decona', 'de name', 'required'); 
+  
+	$this->form_validation->set_rules('excono', 'ex number', 'required'); 
+
+	$this->form_validation->set_rules('excona', 'ex name', 'required');	
+	  
+	$this->form_validation->set_rules('amcono', 'am number', 'required');
+
+	$this->form_validation->set_rules('amcona', 'am name', 'required'); 
+  
+	$this->form_validation->set_rules('gecono', 'ge number', 'required'); 
+
+	$this->form_validation->set_rules('gecona', 'ge name', 'required');	 
+	
 	
   
 	if($this->form_validation->run() != false){
@@ -209,7 +228,27 @@ function mastercatact1(){
 
 						  'mastercat_depyear' =>$depyears,						  
   
-						  'mastercat_depmonth' => $depmonth
+						  'mastercat_depmonth' => $depmonth,
+
+						  'mastercat_coano1' =>$this->input->post('accono'),
+  
+						  'mastercat_coana1' =>$this->input->post('accona'),
+  
+						  'mastercat_coano2' =>$this->input->post('decono'),
+
+						  'mastercat_coana2' =>$this->input->post('decona'),
+
+						  'mastercat_coano3' =>$this->input->post('excono'),
+
+						  'mastercat_coano3' =>$this->input->post('excona'),
+
+						  'mastercat_coana4' =>$this->input->post('amcono'),
+
+						  'mastercat_coano4' =>$this->input->post('amcona'),
+
+						  'mastercat_coano5' =>$this->input->post('gecono'),
+
+						  'mastercat_coana5' =>$this->input->post('gecona')
   
 					  
   
@@ -225,7 +264,7 @@ function mastercatact1(){
   
 									  </b2></div>');	
 									  
-  
+		   redirect('admin_area/addmastercat', 'refresh');	
   
 	}
 
@@ -234,14 +273,15 @@ function mastercatact1(){
 
 		$this->session->set_flashdata('message','<div class="alert alert alert-warning"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
 
-		<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Gagal</h3> Periksa inputan anda</div>');	
-
+		<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Gagal</h3> Periksa inputan anda </div>');
+		
+		$this->addmastercat();
 
 	}
 
 
 	
-	redirect('admin_area/addmastercat', 'refresh');	 
+ 
   
   
 	}// end post submit
@@ -269,6 +309,26 @@ function mastercatact1(){
 		$this->form_validation->set_rules('famethode', 'Fa Methode', 'required'); 
 	
 		$this->form_validation->set_rules('fause', 'Fa Use', 'required');	  
+
+		$this->form_validation->set_rules('accono', 'ac number', 'required');	  
+
+		$this->form_validation->set_rules('accona', 'ac name', 'required');	
+	  
+		$this->form_validation->set_rules('decono', 'de number', 'required');
+	
+		$this->form_validation->set_rules('decona', 'de name', 'required'); 
+	  
+		$this->form_validation->set_rules('excono', 'ex number', 'required'); 
+	
+		$this->form_validation->set_rules('excona', 'ex name', 'required');	
+		  
+		$this->form_validation->set_rules('amcono', 'am number', 'required');
+	
+		$this->form_validation->set_rules('amcona', 'am name', 'required'); 
+	  
+		$this->form_validation->set_rules('gecono', 'ge number', 'required'); 
+	
+		$this->form_validation->set_rules('gecona', 'ge name', 'required');	 
 		
 	  
 		if($this->form_validation->run() != false){
@@ -303,7 +363,27 @@ function mastercatact1(){
 	
 							  'mastercat_depyear' =>$depyears,						  
 	  
-							  'mastercat_depmonth' => $depmonth
+							  'mastercat_depmonth' => $depmonth,
+
+							  'mastercat_coano1' =>$this->input->post('accono'),
+  
+							  'mastercat_coana1' =>$this->input->post('accona'),
+	  
+							  'mastercat_coano2' =>$this->input->post('decono'),
+	
+							  'mastercat_coana2' =>$this->input->post('decona'),
+	
+							  'mastercat_coano3' =>$this->input->post('excono'),
+	
+							  'mastercat_coano3' =>$this->input->post('excona'),
+	
+							  'mastercat_coana4' =>$this->input->post('amcono'),
+	
+							  'mastercat_coano4' =>$this->input->post('amcona'),
+	
+							  'mastercat_coano5' =>$this->input->post('gecono'),
+	
+							  'mastercat_coana5' =>$this->input->post('gecona')
 	  
 						  
 	  
@@ -545,7 +625,9 @@ $mastercatrec= $this->Admin_model->getmasteritem($rowno,$rowperpage)->result();
 		 
 		 $data['row'] = $rowno;
 
- 		 $data['facode'] = $this->Admin_model->getmastercatoformasteitem()->result();	
+		 $data['facode'] = $this->Admin_model->getmastercatoformasteitem()->result();	
+		  
+		
 
 
 $this->load->view("addmasteritem",$data);
@@ -608,7 +690,7 @@ function mastermitact1(){
   
 									  </b2></div>');	
 									  
-  
+									  redirect('admin_area/addmasteritem', 'refresh');	
   
 	}
 
@@ -617,14 +699,15 @@ function mastermitact1(){
 
 		$this->session->set_flashdata('message','<div class="alert alert alert-warning"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
 
-		<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Gagal</h3> Periksa inputan anda</div>');	
-
+		<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Gagal</h3> Periksa inputan anda</div>');
+		
+		$this->addmasteritem();
 
 	}
 
 
 	
-	redirect('admin_area/addmasteritem', 'refresh');	 
+ 
   
   
 	}// end post submit
